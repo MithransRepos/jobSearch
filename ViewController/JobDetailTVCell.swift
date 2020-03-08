@@ -44,28 +44,29 @@ class JobDetailTVCell: BaseTableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 21)
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.textColor = UIColor.link
         label.numberOfLines = 0
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 12)
         label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private let locationLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         return label
     }()
     
     private let comapanyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         return label
     }()
@@ -100,9 +101,9 @@ class JobDetailTVCell: BaseTableViewCell {
     override func setConstraints() {
         super.setConstraints()
         titleLabel.set(.sameLeadingTrailing(contentView, Padding.p12), .top(contentView, Padding.p12))
-        comapanyLabel.set(.sameLeadingTrailing(contentView, Padding.p12), .below(titleLabel, Padding.p12))
-        locationLabel.set(.sameLeadingTrailing(contentView, Padding.p12), .below(comapanyLabel, Padding.p12))
-        descriptionLabel.set(.sameLeadingTrailing(contentView, Padding.p12), .below(locationLabel, Padding.p12), .bottom(contentView,Padding.p12))
+        comapanyLabel.set(.leading(contentView, Padding.p12), .below(titleLabel, Padding.p12))
+        locationLabel.set(.after(comapanyLabel, Padding.p12), .below(titleLabel, Padding.p12), .trailing(contentView,Padding.p12, .greaterThanOrEqual))
+        descriptionLabel.set(.sameLeadingTrailing(contentView, Padding.p12), .below(comapanyLabel, Padding.p12), .bottom(contentView,Padding.p12))
     }
     
     override func prepareForReuse() {
