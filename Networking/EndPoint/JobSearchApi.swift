@@ -8,7 +8,7 @@
 
 import Foundation
 public enum JobSearchApi {
-    case getJobs
+    case getJobs(params: [String: Any]?)
 }
 
 extension JobSearchApi: EndPointType {
@@ -35,8 +35,8 @@ extension JobSearchApi: EndPointType {
 
     var task: HTTPTask {
         switch self {
-        case .getJobs:
-            return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: nil)
+        case .getJobs(let params):
+            return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: params)
         }
     }
 

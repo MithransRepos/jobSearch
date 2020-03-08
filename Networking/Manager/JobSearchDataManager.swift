@@ -10,8 +10,8 @@ import Foundation
 class JobSearchDataManager {
     private let router = Router<JobSearchApi>()
 
-    func searchJob(completion: @escaping (Result<ZipRecruiterResponse?, APIError>) -> Void) {
-        router.fetch(.getJobs, decode: { json -> ZipRecruiterResponse? in
+    func searchJob(params: [String: Any]?, completion: @escaping (Result<ZipRecruiterResponse?, APIError>) -> Void) {
+        router.fetch(.getJobs(params: params), decode: { json -> ZipRecruiterResponse? in
             json as? ZipRecruiterResponse
         }, completion: completion)
     }

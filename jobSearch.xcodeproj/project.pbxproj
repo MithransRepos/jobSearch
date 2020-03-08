@@ -20,13 +20,7 @@
 		08FB993D24153FF3001282B0 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB991C24153FF3001282B0 /* JSONParameterEncoder.swift */; };
 		08FB993E24153FF3001282B0 /* JobSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB991E24153FF3001282B0 /* JobSearchDataManager.swift */; };
 		08FB993F24153FF3001282B0 /* JobSearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992024153FF3001282B0 /* JobSearchApi.swift */; };
-		08FB994024153FF3001282B0 /* SalaryInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992224153FF3001282B0 /* SalaryInterval.swift */; };
-		08FB994124153FF3001282B0 /* BuyerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992324153FF3001282B0 /* BuyerType.swift */; };
-		08FB994224153FF3001282B0 /* IndustryName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992424153FF3001282B0 /* IndustryName.swift */; };
-		08FB994324153FF3001282B0 /* SalarySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992524153FF3001282B0 /* SalarySource.swift */; };
-		08FB994424153FF3001282B0 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992624153FF3001282B0 /* State.swift */; };
 		08FB994524153FF3001282B0 /* APIErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992724153FF3001282B0 /* APIErrorMessage.swift */; };
-		08FB994624153FF3001282B0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992824153FF3001282B0 /* Country.swift */; };
 		08FB994724153FF3001282B0 /* ZipRecruiterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992924153FF3001282B0 /* ZipRecruiterResponse.swift */; };
 		08FB994824153FF3001282B0 /* HiringCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992A24153FF3001282B0 /* HiringCompany.swift */; };
 		08FB994924153FF3001282B0 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB992B24153FF3001282B0 /* Job.swift */; };
@@ -83,13 +77,7 @@
 		08FB991C24153FF3001282B0 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		08FB991E24153FF3001282B0 /* JobSearchDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSearchDataManager.swift; sourceTree = "<group>"; };
 		08FB992024153FF3001282B0 /* JobSearchApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSearchApi.swift; sourceTree = "<group>"; };
-		08FB992224153FF3001282B0 /* SalaryInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalaryInterval.swift; sourceTree = "<group>"; };
-		08FB992324153FF3001282B0 /* BuyerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyerType.swift; sourceTree = "<group>"; };
-		08FB992424153FF3001282B0 /* IndustryName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndustryName.swift; sourceTree = "<group>"; };
-		08FB992524153FF3001282B0 /* SalarySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalarySource.swift; sourceTree = "<group>"; };
-		08FB992624153FF3001282B0 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		08FB992724153FF3001282B0 /* APIErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorMessage.swift; sourceTree = "<group>"; };
-		08FB992824153FF3001282B0 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		08FB992924153FF3001282B0 /* ZipRecruiterResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipRecruiterResponse.swift; sourceTree = "<group>"; };
 		08FB992A24153FF3001282B0 /* HiringCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiringCompany.swift; sourceTree = "<group>"; };
 		08FB992B24153FF3001282B0 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -248,13 +236,7 @@
 		08FB992124153FF3001282B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				08FB992224153FF3001282B0 /* SalaryInterval.swift */,
-				08FB992324153FF3001282B0 /* BuyerType.swift */,
-				08FB992424153FF3001282B0 /* IndustryName.swift */,
-				08FB992524153FF3001282B0 /* SalarySource.swift */,
-				08FB992624153FF3001282B0 /* State.swift */,
 				08FB992724153FF3001282B0 /* APIErrorMessage.swift */,
-				08FB992824153FF3001282B0 /* Country.swift */,
 				08FB992924153FF3001282B0 /* ZipRecruiterResponse.swift */,
 				08FB992A24153FF3001282B0 /* HiringCompany.swift */,
 				08FB992B24153FF3001282B0 /* Job.swift */,
@@ -426,14 +408,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				08FB994B24153FF3001282B0 /* HTTPTask.swift in Sources */,
-				08FB994224153FF3001282B0 /* IndustryName.swift in Sources */,
 				08FB995A241543BD001282B0 /* BaseViewController.swift in Sources */,
 				08FB993A24153FF3001282B0 /* NetworkConstants.swift in Sources */,
 				08FB98E4241530AF001282B0 /* ViewController.swift in Sources */,
 				08FB993C24153FF3001282B0 /* URLParameterEncoder.swift in Sources */,
 				08FB994524153FF3001282B0 /* APIErrorMessage.swift in Sources */,
 				08FB993E24153FF3001282B0 /* JobSearchDataManager.swift in Sources */,
-				08FB994424153FF3001282B0 /* State.swift in Sources */,
 				08FB9958241542F2001282B0 /* JobSearchViewController.swift in Sources */,
 				08FB994E24153FF3001282B0 /* EndPointType.swift in Sources */,
 				08FB9956241540BC001282B0 /* ApiRequestParam.swift in Sources */,
@@ -441,7 +421,6 @@
 				08FB994724153FF3001282B0 /* ZipRecruiterResponse.swift in Sources */,
 				08FB98E0241530AF001282B0 /* AppDelegate.swift in Sources */,
 				08FB994824153FF3001282B0 /* HiringCompany.swift in Sources */,
-				08FB994124153FF3001282B0 /* BuyerType.swift in Sources */,
 				08FB995424153FF3001282B0 /* UIView+Layout.swift in Sources */,
 				08FB993F24153FF3001282B0 /* JobSearchApi.swift in Sources */,
 				08FB994C24153FF3001282B0 /* HTTPMethod.swift in Sources */,
@@ -450,12 +429,9 @@
 				08FB995024153FF3001282B0 /* NetworkLogger.swift in Sources */,
 				08FB994D24153FF3001282B0 /* Router.swift in Sources */,
 				08FB995124153FF3001282B0 /* UIConstants.swift in Sources */,
-				08FB994624153FF3001282B0 /* Country.swift in Sources */,
 				08FB995224153FF3001282B0 /* UIImageViewExtension.swift in Sources */,
-				08FB994024153FF3001282B0 /* SalaryInterval.swift in Sources */,
 				08FB98E2241530AF001282B0 /* SceneDelegate.swift in Sources */,
 				08FB994A24153FF3001282B0 /* NetworkRouter.swift in Sources */,
-				08FB994324153FF3001282B0 /* SalarySource.swift in Sources */,
 				08FB995324153FF3001282B0 /* Extension.swift in Sources */,
 				08FB994924153FF3001282B0 /* Job.swift in Sources */,
 			);

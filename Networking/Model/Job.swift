@@ -7,18 +7,17 @@ import Foundation
 
 // MARK: - Job
 struct Job: Codable {
-    let country: Country?
+    let country: String?
     let hasNonZrURL: String?
     let url: String?
     let hasZipapply: Bool?
-    let state: State?
-    let buyerType: BuyerType?
+    let state: String?
     let id, source, city, postedTime: String?
-    let industryName: IndustryName?
+    let industryName: String?
     let jobAge, salaryMax: Int?
-    let salarySource: SalarySource?
+    let salarySource: String?
     let postedTimeFriendly, category: String?
-    let salaryInterval: SalaryInterval?
+    let salaryInterval: String?
     let salaryMinAnnual: Int?
     let name, snippet, location: String?
     let salaryMin: Int?
@@ -31,7 +30,6 @@ struct Job: Codable {
         case url
         case hasZipapply = "has_zipapply"
         case state
-        case buyerType = "buyer_type"
         case id, source, city
         case postedTime = "posted_time"
         case industryName = "industry_name"
