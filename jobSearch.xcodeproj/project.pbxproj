@@ -38,6 +38,9 @@
 		08FB9956241540BC001282B0 /* ApiRequestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB9955241540BC001282B0 /* ApiRequestParam.swift */; };
 		08FB9958241542F2001282B0 /* JobSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB9957241542F2001282B0 /* JobSearchViewController.swift */; };
 		08FB995A241543BD001282B0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB9959241543BD001282B0 /* BaseViewController.swift */; };
+		08FB995D24156039001282B0 /* JobSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB995C24156039001282B0 /* JobSearchViewModel.swift */; };
+		08FB996024156378001282B0 /* BaseTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB995E24156378001282B0 /* BaseTableVIewCell.swift */; };
+		08FB996124156378001282B0 /* JobDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB995F24156378001282B0 /* JobDetailTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		08FB9955241540BC001282B0 /* ApiRequestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestParam.swift; sourceTree = "<group>"; };
 		08FB9957241542F2001282B0 /* JobSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchViewController.swift; sourceTree = "<group>"; };
 		08FB9959241543BD001282B0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		08FB995C24156039001282B0 /* JobSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchViewModel.swift; sourceTree = "<group>"; };
+		08FB995E24156378001282B0 /* BaseTableVIewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableVIewCell.swift; sourceTree = "<group>"; };
+		08FB995F24156378001282B0 /* JobDetailTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailTVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +131,10 @@
 		08FB98D3241530AF001282B0 = {
 			isa = PBXGroup;
 			children = (
+				08FB991324153490001282B0 /* ViewController */,
+				08FB995B24155FF1001282B0 /* ViewModel */,
 				08FB993524153FF3001282B0 /* Extension */,
 				08FB991624153FF3001282B0 /* Networking */,
-				08FB991324153490001282B0 /* ViewController */,
 				08FB98DE241530AF001282B0 /* jobSearch */,
 				08FB98F5241530AF001282B0 /* jobSearchTests */,
 				08FB9900241530AF001282B0 /* jobSearchUITests */,
@@ -179,6 +186,8 @@
 		08FB991324153490001282B0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				08FB995E24156378001282B0 /* BaseTableVIewCell.swift */,
+				08FB995F24156378001282B0 /* JobDetailTVCell.swift */,
 				08FB9957241542F2001282B0 /* JobSearchViewController.swift */,
 				08FB9959241543BD001282B0 /* BaseViewController.swift */,
 			);
@@ -275,6 +284,14 @@
 				08FB993924153FF3001282B0 /* UIView+Layout.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		08FB995B24155FF1001282B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08FB995C24156039001282B0 /* JobSearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +433,7 @@
 				08FB993E24153FF3001282B0 /* JobSearchDataManager.swift in Sources */,
 				08FB9958241542F2001282B0 /* JobSearchViewController.swift in Sources */,
 				08FB994E24153FF3001282B0 /* EndPointType.swift in Sources */,
+				08FB996024156378001282B0 /* BaseTableVIewCell.swift in Sources */,
 				08FB9956241540BC001282B0 /* ApiRequestParam.swift in Sources */,
 				08FB993B24153FF3001282B0 /* ParameterEncoding.swift in Sources */,
 				08FB994724153FF3001282B0 /* ZipRecruiterResponse.swift in Sources */,
@@ -431,6 +449,8 @@
 				08FB995124153FF3001282B0 /* UIConstants.swift in Sources */,
 				08FB995224153FF3001282B0 /* UIImageViewExtension.swift in Sources */,
 				08FB98E2241530AF001282B0 /* SceneDelegate.swift in Sources */,
+				08FB996124156378001282B0 /* JobDetailTVCell.swift in Sources */,
+				08FB995D24156039001282B0 /* JobSearchViewModel.swift in Sources */,
 				08FB994A24153FF3001282B0 /* NetworkRouter.swift in Sources */,
 				08FB995324153FF3001282B0 /* Extension.swift in Sources */,
 				08FB994924153FF3001282B0 /* Job.swift in Sources */,

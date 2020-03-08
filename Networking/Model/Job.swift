@@ -6,43 +6,26 @@
 import Foundation
 
 // MARK: - Job
-struct Job: Codable {
+public struct Job: Codable {
     let country: String?
-    let hasNonZrURL: String?
     let url: String?
-    let hasZipapply: Bool?
     let state: String?
     let id, source, city, postedTime: String?
     let industryName: String?
-    let jobAge, salaryMax: Int?
-    let salarySource: String?
     let postedTimeFriendly, category: String?
-    let salaryInterval: String?
-    let salaryMinAnnual: Int?
     let name, snippet, location: String?
-    let salaryMin: Int?
     let hiringCompany: HiringCompany?
-    let salaryMaxAnnual: Int?
 
     enum CodingKeys: String, CodingKey {
         case country
-        case hasNonZrURL = "has_non_zr_url"
         case url
-        case hasZipapply = "has_zipapply"
         case state
         case id, source, city
         case postedTime = "posted_time"
         case industryName = "industry_name"
-        case jobAge = "job_age"
-        case salaryMax = "salary_max"
-        case salarySource = "salary_source"
         case postedTimeFriendly = "posted_time_friendly"
         case category
-        case salaryInterval = "salary_interval"
-        case salaryMinAnnual = "salary_min_annual"
         case name, snippet, location
-        case salaryMin = "salary_min"
         case hiringCompany = "hiring_company"
-        case salaryMaxAnnual = "salary_max_annual"
     }
 }
