@@ -1,0 +1,47 @@
+#OS noise
+[Tt]humbs.db
+*.DS_Store
+*~
+*.swp
+*.out
+*.bak*
+
+#Other CSM
+.hg
+.svn
+CVS
+
+#Xcode noise
+*.log
+*~.nib
+*.moved-aside
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+!xcshareddata
+*.xccheckout
+ios-base/Models/CoreData/Private/*
+#Project files
+[Bb]uild/
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+*.DS_Store
+*.idea
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
+#
+Pods
+Podfile.lock
+
+#Fastlane Ignores
+*.dSYM.zip
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
