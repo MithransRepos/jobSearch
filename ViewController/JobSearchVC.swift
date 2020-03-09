@@ -130,7 +130,9 @@ class JobSearchVC: BaseViewController {
     
     @objc func searchButtonTapped() {
         if locationSearchBar.text?.isEmpty ?? true && textSearchBar.text?.isEmpty ?? true {
-            let alert = UIAlertController(title: "Error", message: "You have enter either location or search for job description", preferredStyle:  .alert)
+            let alert = UIAlertController(title: "Error",
+                                          message: "You have enter either location or search for job description",
+                                          preferredStyle:  .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return

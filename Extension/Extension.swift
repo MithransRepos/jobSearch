@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import DTCoreText
+
 extension Array {
     public subscript(safeIndex index: Int) -> Element? {
         guard index >= 0, index < endIndex else {
@@ -22,19 +24,28 @@ extension String {
         let fontAttributes = [NSAttributedString.Key.font: font]
         return self.size(withAttributes: fontAttributes)
     }
-
-        var htmlToAttributedString: NSAttributedString? {
-            guard let data = data(using: .utf8, allowLossyConversion: true) else { return NSAttributedString() }
-            do {
-                return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
-            } catch {
-                return NSAttributedString()
-            }
-        }
-        var htmlToString: String {
-            return htmlToAttributedString?.string ?? ""
-        }
-
+    
+     public func returnAttributedStringForHTMLString (fontFamily: String, fontName: String, fontSize: CGFloat, textColor: UIColor, textAlignment: CTTextAlignment) -> NSMutableAttributedString {
+           let encodedData = self.data(using: String.Encoding.utf8)!
+           let options = [
+               DTDefaultFontFamily:fontFamily,
+               DTDefaultFontName: fontName,
+               DTDefaultFontSize: fontSize,
+               DTDefaultTextColor: textColor,
+               DTDefaultTextAlignment: NSNumber(value: textAlignment.rawValue)
+               ] as [String : Any]
+           let builder = DTHTMLAttributedStringBuilder(html: encodedData, options: options, documentAttributes: nil)
+           var returnValue:NSAttributedString?
+           returnValue = builder?.generatedAttributedString()
+           if returnValue != nil {
+               //needed to show link highlighting
+               let mutable = NSMutableAttributedString(attributedString: returnValue!)
+               mutable.removeAttribute(NSAttributedString.Key.foregroundColor, range: NSMakeRange(0, mutable.length))
+               return mutable
+           }else{
+               return NSMutableAttributedString(string: "")
+           }
+       }
 }
 extension UIColor {
 

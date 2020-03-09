@@ -25,6 +25,8 @@ class JobSearchResultVC: BaseViewController {
     
     private var dataSource: JobSearchResultVCDataSource!
     
+    private var isSearchViewPresentedOnLaunch: Bool = false
+    
     private let searchButton: UIButton = {
         let button = UIButton()
         button.setTitle("Find the best jobs here!", for: .normal)
@@ -50,8 +52,10 @@ class JobSearchResultVC: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
+        if isSearchViewPresentedOnLaunch { return }
         openJobSearchVC()
+        isSearchViewPresentedOnLaunch = true
     }
       
     override func addViews() {

@@ -7,7 +7,8 @@ target 'jobSearch' do
  
   # Pods for jobSearch
   pod 'GooglePlaces'
-  target 'jobSearchTests' do
+ pod 'DTCoreText', '~> 1.6'
+ target 'jobSearchTests' do
     inherit! :search_paths
     # Pods for testing
   end
