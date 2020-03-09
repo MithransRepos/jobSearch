@@ -193,9 +193,9 @@
 				08FB995E24156378001282B0 /* BaseTableVIewCell.swift */,
 				08FB995F24156378001282B0 /* JobDetailTVCell.swift */,
 				08FB9957241542F2001282B0 /* JobSearchResultVC.swift */,
+				08FB9964241653DE001282B0 /* JobSearchVC.swift */,
 				08FB9959241543BD001282B0 /* BaseViewController.swift */,
 				08FB996224164B5E001282B0 /* WebViewVC.swift */,
-				08FB9964241653DE001282B0 /* JobSearchVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

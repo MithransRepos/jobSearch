@@ -26,6 +26,13 @@ class JobSearchResultVC: BaseViewController {
     
     private let jobSearchVC = JobSearchVC()
     
+    private let searchButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Find the best jobs here!", for: .normal)
+        button.setTitleColor(.link, for: .normal)
+        return button
+    }()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         dataSource = JobSearchVM(delegate: self)
@@ -39,6 +46,9 @@ class JobSearchResultVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Job Search"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search,
+                                                            target: self, action: #selector(openJobSearchVC))
+        searchButton.addTarget(self, action: #selector(openJobSearchVC), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,31 +57,36 @@ class JobSearchResultVC: BaseViewController {
     }
       
     override func addViews() {
-          super.addViews()
-          view.addSubview(tableView)
-      }
+        super.addViews()
+        view.addSubview(tableView)
+        view.addSubview(searchButton)
+    }
       
-      override func setConstraints() {
-          super.setConstraints()
-          tableView.set(.fillSuperView(self.view))
-      }
+    override func setConstraints() {
+        super.setConstraints()
+        tableView.set(.fillSuperView(view))
+        searchButton.set(.centerView(view), .width(200, .greaterThanOrEqual))
+    }
       
-      override func setupTableView()  {
-          super.setupTableView()
-          tableView.dataSource = self
-          tableView.delegate = self
-          tableView.register(JobDetailTVCell.self, forCellReuseIdentifier: JobDetailTVCell.reuseIdentifier)
-          tableView.tableFooterView = UIView()
-      }
+    override func setupTableView()  {
+        super.setupTableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(JobDetailTVCell.self, forCellReuseIdentifier: JobDetailTVCell.reuseIdentifier)
+        tableView.tableFooterView = UIView()
+    }
     
-    private func openJobSearchVC() {
+    @objc private func openJobSearchVC() {
         jobSearchVC.locationText = dataSource.locationText
         jobSearchVC.searchText = dataSource.searchText
         self.present(jobSearchVC, animated: true, completion: nil)
     }
+    
     override func apiCallCompleted() {
         super.apiCallCompleted()
         title = dataSource.jobResultsTitle
+        searchButton.isHidden = dataSource.numberOfJobs != 0
+        searchButton.setTitle("No jobs found! Try different input", for: .normal)
     }
 }
 
@@ -124,6 +139,7 @@ extension JobSearchResultVC: JobSearchVMDelegate {
 
 extension JobSearchResultVC: JobSearchVCDelegate {
     func didTapSearchButton(location: String?, searchText: String?) {
+        searchButton.isHidden = true
         jobSearchVC.dismiss(animated: true, completion: nil)
         dataSource.performSearch(with: location, text: searchText)
     }
