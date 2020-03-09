@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class ApiRequestParam: Codable {
+public class ApiRequestParam: Codable {
     private let apiKey: String = NetworkConstants.ApiKey
     public var searchText: String?
     public var location: String?

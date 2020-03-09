@@ -10,13 +10,10 @@ import UIKit
 import GooglePlaces
 
 public protocol JobSearchVCDelegate: class {
-    func didTapSearchButton(location: String?, searchText: String?)
+    func didTapSearchButton(_ vc: UIViewController)
 }
 
 class JobSearchVC: BaseViewController {
-    
-    public var searchText: String?
-    public var locationText: String?
     
     weak var delegate: JobSearchVCDelegate?
     
@@ -62,8 +59,15 @@ class JobSearchVC: BaseViewController {
         return button
     }()
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    private let daysAgo = Array(0...20)
+    
+    private let postedDayAgo = UIPickerView()
+    
+    private let searchRequestParam: ApiRequestParam
+    
+    init(searchRequestParam: ApiRequestParam) {
+        self.searchRequestParam = searchRequestParam
+        super.init(nibName: nil, bundle: nil)
         GMSPlacesClient.provideAPIKey(NetworkConstants.GoogleApiKey)
     }
     
@@ -75,12 +79,15 @@ class JobSearchVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        postedDayAgo.delegate = self
+        postedDayAgo.dataSource = self
         setupSearchBar()
     }
     
     private func setupSearchBar() {
-        textSearchBar.text = searchText
-        locationSearchBar.text = locationText
+        locationSearchBar.text = searchRequestParam.location
+        textSearchBar.text = searchRequestParam.searchText
+        postedDayAgo.selectRow(searchRequestParam.daysAgo ?? 0, inComponent: 1, animated: false)
         locationSearchBar.delegate = self
     }
     
@@ -90,6 +97,7 @@ class JobSearchVC: BaseViewController {
         view.addSubview(locationSearchBar)
         view.addSubview(textSearchBar)
         view.addSubview(searchButton)
+        view.addSubview(postedDayAgo)
     }
     
     override func setConstraints() {
@@ -97,7 +105,9 @@ class JobSearchVC: BaseViewController {
         subtitleLabel.set(.below(titleLabel), .sameLeadingTrailing(view, Padding.p12))
         textSearchBar.set(.below(subtitleLabel, Padding.p12), .sameLeadingTrailing(view, Padding.p12))
         locationSearchBar.set(.below(textSearchBar), .sameLeadingTrailing(view, Padding.p12))
-        searchButton.set(.below(locationSearchBar, Padding.p12), .sameLeadingTrailing(view, Padding.p12))
+        postedDayAgo.set(.below(locationSearchBar), .sameLeadingTrailing(view, Padding.p12), .height(60))
+        searchButton.set(.below(postedDayAgo, Padding.p12), .sameLeadingTrailing(view, Padding.p12))
+        
     }
     
     private func openGoogleAutoComplete() {
@@ -125,7 +135,10 @@ class JobSearchVC: BaseViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
-        delegate?.didTapSearchButton(location: locationSearchBar.text, searchText: textSearchBar.text)
+        searchRequestParam.location = locationSearchBar.text
+        searchRequestParam.searchText = textSearchBar.text
+        searchRequestParam.daysAgo = postedDayAgo.selectedRow(inComponent: 1) > 0 ? postedDayAgo.selectedRow(inComponent: 1) : nil
+        delegate?.didTapSearchButton(self)
     }
 }
 extension JobSearchVC: GMSAutocompleteViewControllerDelegate {
@@ -151,4 +164,34 @@ extension JobSearchVC: UISearchBarDelegate {
         return false
     }
 
+}
+
+extension JobSearchVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 { return 1 }
+        return daysAgo.count
+    }
+    
+    private func getTextForPicker(component: Int, row: Int) -> String?{
+        if component == 0 { return "Posted on" }
+        guard let item =  daysAgo[safeIndex: row] else {
+            return nil
+        }
+        if row == 0 { return "Select"}
+        return "\(item) day(s) ago"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label = UILabel()
+        if let v = view as? UILabel { label = v }
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.text = getTextForPicker(component: component, row: row)
+        label.textAlignment = .center
+        return label
+    }
+    
 }

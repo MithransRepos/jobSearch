@@ -59,14 +59,16 @@ class JobSearchVM: NSObject {
 }
 
 extension JobSearchVM: JobSearchResultVCDataSource {
+    func getSearchRequestParam() -> ApiRequestParam {
+        return params
+    }
+    
     var jobResultsTitle: String? {
         if totalJobs == 0 { return "Job Search" }
         return "\(totalJobs) matching jobs found"
     }
     
-    func performSearch(with location: String?, text: String?) {
-        params.location = location
-        params.searchText = text
+    func performSearch() {
         params.currentPage = 1
         searchJob()
     }

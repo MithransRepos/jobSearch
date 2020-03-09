@@ -17,14 +17,13 @@ public protocol JobSearchResultVCDataSource: class {
     var searchText: String? { get }
     var locationText: String? { get }
     var jobResultsTitle: String? { get }
-    func performSearch(with location: String?, text: String?)
+    func performSearch()
+    func getSearchRequestParam() -> ApiRequestParam
 }
 
 class JobSearchResultVC: BaseViewController {
     
     private var dataSource: JobSearchResultVCDataSource!
-    
-    private let jobSearchVC = JobSearchVC()
     
     private let searchButton: UIButton = {
         let button = UIButton()
@@ -36,7 +35,6 @@ class JobSearchResultVC: BaseViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         dataSource = JobSearchVM(delegate: self)
-        jobSearchVC.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -77,8 +75,8 @@ class JobSearchResultVC: BaseViewController {
     }
     
     @objc private func openJobSearchVC() {
-        jobSearchVC.locationText = dataSource.locationText
-        jobSearchVC.searchText = dataSource.searchText
+        let jobSearchVC = JobSearchVC(searchRequestParam: dataSource.getSearchRequestParam())
+        jobSearchVC.delegate = self
         self.present(jobSearchVC, animated: true, completion: nil)
     }
     
@@ -138,9 +136,10 @@ extension JobSearchResultVC: JobSearchVMDelegate {
 }
 
 extension JobSearchResultVC: JobSearchVCDelegate {
-    func didTapSearchButton(location: String?, searchText: String?) {
+    
+    func didTapSearchButton(_ vc: UIViewController) {
         searchButton.isHidden = true
-        jobSearchVC.dismiss(animated: true, completion: nil)
-        dataSource.performSearch(with: location, text: searchText)
+        vc.dismiss(animated: true, completion: nil)
+        dataSource.performSearch()
     }
 }
