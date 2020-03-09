@@ -12,8 +12,8 @@ class ApiRequestParam: Codable {
     public var searchText: String?
     public var location: String?
     public var radiusMiles: Int?
-    public var currentPage: Int?
-    public var jobsPerPage: Int?
+    public var currentPage: Int = 1
+    public var jobsPerPage: Int = 10
     public var daysAgo: Int?
     public var refineBySalary: Int?
     

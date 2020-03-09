@@ -6,7 +6,7 @@
 import Foundation
 
 // MARK: - ZipRecruiterResponse
-struct ZipRecruiterResponse: Codable {
+struct ZipRecruiterResponse: Decodable {
     let success: Bool?
     let jobs: [Job]?
     let numPaginableJobs, totalJobs: Int?

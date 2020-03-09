@@ -12,6 +12,7 @@ class BaseViewController: UIViewController {
     
     let tableView: UITableView  = UITableView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
+    var apiCallInProgess: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +47,29 @@ class BaseViewController: UIViewController {
         tableView.keyboardDismissMode = .onDrag
     }
     
+    func showLoaderForLoadMore() {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.frame = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 44)
+        spinner.startAnimating()
+        tableView.tableFooterView = spinner
+    }
+    
+    func hideLoaderForLoadMore() {
+        tableView.tableFooterView = UIView()
+    }
     
     
     func apiCallInProgress() {
+        apiCallInProgess = true
         activityIndicator.startAnimating()
         tableView.isHidden = true
     }
     
     func apiCallCompleted() {
+        apiCallInProgess = false
         tableView.isHidden = false
         activityIndicator.stopAnimating()
+        hideLoaderForLoadMore()
     }
     
     
@@ -75,4 +89,4 @@ class BaseViewController: UIViewController {
         // can override in sub class
     }
     
-}
+} 

@@ -17,8 +17,8 @@ class JobDetailTVCellVM: JobDetailTVCellDataSource {
         return job?.name
     }
     
-    var descriptionText: String? {
-        return job?.snippet
+    var descriptionText: NSAttributedString? {
+        return job?.htmlSnippet
     }
     
     var location: String? {
@@ -34,7 +34,7 @@ class JobDetailTVCellVM: JobDetailTVCellDataSource {
 
 public protocol JobDetailTVCellDataSource: class {
     var title: String? { get }
-    var descriptionText: String? { get }
+    var descriptionText: NSAttributedString? { get }
     var location: String? { get }
     var companyName: String? { get }
 }
@@ -85,7 +85,7 @@ class JobDetailTVCell: BaseTableViewCell {
     
     private func setData() {
         self.titleLabel.text = dataSource?.title
-        self.descriptionLabel.text = dataSource?.descriptionText
+        self.descriptionLabel.attributedText = dataSource?.descriptionText
         self.comapanyLabel.text = dataSource?.companyName
         self.locationLabel.text = dataSource?.location
     }
@@ -109,7 +109,7 @@ class JobDetailTVCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = nil
-        descriptionLabel.text = nil
+        descriptionLabel.attributedText = nil
         locationLabel.text = nil
         comapanyLabel.text = nil
     }

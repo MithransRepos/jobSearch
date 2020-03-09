@@ -12,6 +12,7 @@ import UIKit
 public protocol JobSearchVCDataSource: class {
     var numberOfJobs: Int { get }
     func getJob(at index: Int) -> Job?
+    func loadMoreIfNeeded(index: Int)
 }
 
 class JobSearchViewController: BaseViewController {
@@ -50,7 +51,6 @@ class JobSearchViewController: BaseViewController {
           tableView.register(JobDetailTVCell.self, forCellReuseIdentifier: JobDetailTVCell.reuseIdentifier)
           tableView.tableFooterView = UIView()
       }
-
 }
 
 // MARK: tableview delegate & dataSource functions
@@ -74,6 +74,11 @@ extension JobSearchViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !tableView.isDecelerating || apiCallInProgess { return }
+        dataSource.loadMoreIfNeeded(index: indexPath.row)
+    }
+    
 }
 
 // MARK: JobSearchVMDelegate functions
@@ -84,6 +89,12 @@ extension JobSearchViewController: JobSearchVMDelegate {
     }
     
     func didFailFetchUsers(errorMessage: String) {
-        tableView.reloadData()
+        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle:  .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    
+    
 }

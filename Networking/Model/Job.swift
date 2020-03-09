@@ -6,16 +6,17 @@
 import Foundation
 
 // MARK: - Job
-public struct Job: Codable {
-    let country: String?
-    let url: String?
-    let state: String?
-    let id, source, city, postedTime: String?
-    let industryName: String?
-    let postedTimeFriendly, category: String?
-    let name, snippet, location: String?
-    let hiringCompany: HiringCompany?
-
+public struct Job: Decodable {
+    var country: String?
+    var url: String?
+    var state: String?
+    var id, source, city, postedTime: String?
+    var industryName: String?
+    var postedTimeFriendly, category: String?
+    var name, location: String?
+    var hiringCompany: HiringCompany?
+    let snippet: String?
+    let htmlSnippet: NSAttributedString?
     enum CodingKeys: String, CodingKey {
         case country
         case url
@@ -27,5 +28,15 @@ public struct Job: Codable {
         case category
         case name, snippet, location
         case hiringCompany = "hiring_company"
+        case htmlSnippet
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name =  try container.decodeIfPresent(String.self, forKey: .name)
+        location =  try container.decodeIfPresent(String.self, forKey: .location)
+        snippet = try container.decodeIfPresent(String.self, forKey: .snippet)
+        hiringCompany = try container.decodeIfPresent(HiringCompany.self, forKey: .hiringCompany)
+        htmlSnippet = snippet?.htmlToAttributedString
     }
 }
