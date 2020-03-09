@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 public protocol JobSearchVCDelegate: class {
     func didTapSearchButton(location: String?, searchText: String?)
@@ -63,6 +64,7 @@ class JobSearchVC: BaseViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        GMSPlacesClient.provideAPIKey(NetworkConstants.GoogleApiKey)
     }
     
     required init?(coder: NSCoder) {
@@ -77,8 +79,9 @@ class JobSearchVC: BaseViewController {
     }
     
     private func setupSearchBar() {
-        self.textSearchBar.text = searchText
-        self.locationSearchBar.text = locationText
+        textSearchBar.text = searchText
+        locationSearchBar.text = locationText
+        locationSearchBar.delegate = self
     }
     
     override func addViews() {
@@ -97,6 +100,23 @@ class JobSearchVC: BaseViewController {
         searchButton.set(.below(locationSearchBar, Padding.p12), .sameLeadingTrailing(view, Padding.p12))
     }
     
+    private func openGoogleAutoComplete() {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+
+        // Specify the place data types to return.
+        if let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue)) {
+        autocompleteController.placeFields = fields
+        }
+
+        // Specify a filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        autocompleteController.autocompleteFilter = filter
+
+        // Display the autocomplete view controller.
+        present(autocompleteController, animated: true, completion: nil)
+    }
     
     @objc func searchButtonTapped() {
         if locationSearchBar.text?.isEmpty ?? true && textSearchBar.text?.isEmpty ?? true {
@@ -107,4 +127,28 @@ class JobSearchVC: BaseViewController {
         }
         delegate?.didTapSearchButton(location: locationSearchBar.text, searchText: textSearchBar.text)
     }
+}
+extension JobSearchVC: GMSAutocompleteViewControllerDelegate {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        locationSearchBar.text = place.name
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+
+extension JobSearchVC: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        openGoogleAutoComplete()
+        return false
+    }
+
 }

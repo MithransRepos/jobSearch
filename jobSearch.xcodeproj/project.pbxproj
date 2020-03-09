@@ -43,6 +43,9 @@
 		08FB996124156378001282B0 /* JobDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB995F24156378001282B0 /* JobDetailTVCell.swift */; };
 		08FB996324164B5E001282B0 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB996224164B5E001282B0 /* WebViewVC.swift */; };
 		08FB9965241653DE001282B0 /* JobSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB9964241653DE001282B0 /* JobSearchVC.swift */; };
+		5380317756A1256A3FA75961 /* Pods_jobSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10226A8D63780B8D746A269 /* Pods_jobSearch.framework */; };
+		5D4816D2DA4988A36FE18C87 /* Pods_jobSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17587ED1D0480F4EBE0AC35 /* Pods_jobSearchTests.framework */; };
+		7841B965125BC9EC0D12B47A /* Pods_jobSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276D1FA32979E4322247CC1 /* Pods_jobSearchUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04746F3A1B2352CEAB179387 /* Pods-jobSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobSearch.debug.xcconfig"; path = "Target Support Files/Pods-jobSearch/Pods-jobSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		073B8C9993C8ED4717F98C7B /* Pods-jobSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-jobSearchUITests/Pods-jobSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		08FB98DC241530AF001282B0 /* jobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08FB98DF241530AF001282B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08FB98E1241530AF001282B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +110,13 @@
 		08FB995F24156378001282B0 /* JobDetailTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailTVCell.swift; sourceTree = "<group>"; };
 		08FB996224164B5E001282B0 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		08FB9964241653DE001282B0 /* JobSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchVC.swift; sourceTree = "<group>"; };
+		28FD8777551BC8038C5C02FD /* Pods-jobSearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobSearchUITests.release.xcconfig"; path = "Target Support Files/Pods-jobSearchUITests/Pods-jobSearchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		37FF1A830703D21A5C81883B /* Pods-jobSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobSearch.release.xcconfig"; path = "Target Support Files/Pods-jobSearch/Pods-jobSearch.release.xcconfig"; sourceTree = "<group>"; };
+		63F7A6EAB63A2D642D10832D /* Pods-jobSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-jobSearchTests/Pods-jobSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A3315D07A3AF8BDD3782175 /* Pods-jobSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobSearchTests.release.xcconfig"; path = "Target Support Files/Pods-jobSearchTests/Pods-jobSearchTests.release.xcconfig"; sourceTree = "<group>"; };
+		B17587ED1D0480F4EBE0AC35 /* Pods_jobSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jobSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C276D1FA32979E4322247CC1 /* Pods_jobSearchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jobSearchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10226A8D63780B8D746A269 /* Pods_jobSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jobSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5380317756A1256A3FA75961 /* Pods_jobSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4816D2DA4988A36FE18C87 /* Pods_jobSearchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7841B965125BC9EC0D12B47A /* Pods_jobSearchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +158,8 @@
 				08FB98F5241530AF001282B0 /* jobSearchTests */,
 				08FB9900241530AF001282B0 /* jobSearchUITests */,
 				08FB98DD241530AF001282B0 /* Products */,
+				C2609FE54E6BF7E010880891 /* Pods */,
+				C332B73BCC540619CAE5F8AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -300,6 +317,30 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C2609FE54E6BF7E010880891 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04746F3A1B2352CEAB179387 /* Pods-jobSearch.debug.xcconfig */,
+				37FF1A830703D21A5C81883B /* Pods-jobSearch.release.xcconfig */,
+				63F7A6EAB63A2D642D10832D /* Pods-jobSearchTests.debug.xcconfig */,
+				6A3315D07A3AF8BDD3782175 /* Pods-jobSearchTests.release.xcconfig */,
+				073B8C9993C8ED4717F98C7B /* Pods-jobSearchUITests.debug.xcconfig */,
+				28FD8777551BC8038C5C02FD /* Pods-jobSearchUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C332B73BCC540619CAE5F8AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F10226A8D63780B8D746A269 /* Pods_jobSearch.framework */,
+				B17587ED1D0480F4EBE0AC35 /* Pods_jobSearchTests.framework */,
+				C276D1FA32979E4322247CC1 /* Pods_jobSearchUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,9 +348,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08FB9906241530AF001282B0 /* Build configuration list for PBXNativeTarget "jobSearch" */;
 			buildPhases = (
+				E24E496CA57DC4F1D63556ED /* [CP] Check Pods Manifest.lock */,
 				08FB98D8241530AF001282B0 /* Sources */,
 				08FB98D9241530AF001282B0 /* Frameworks */,
 				08FB98DA241530AF001282B0 /* Resources */,
+				BD4C5E308E9D564472D08754 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,6 +367,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08FB9909241530AF001282B0 /* Build configuration list for PBXNativeTarget "jobSearchTests" */;
 			buildPhases = (
+				6467C7260442A8801F68C22F /* [CP] Check Pods Manifest.lock */,
 				08FB98EE241530AF001282B0 /* Sources */,
 				08FB98EF241530AF001282B0 /* Frameworks */,
 				08FB98F0241530AF001282B0 /* Resources */,
@@ -342,6 +386,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08FB990C241530AF001282B0 /* Build configuration list for PBXNativeTarget "jobSearchUITests" */;
 			buildPhases = (
+				AE599CA2B892C75FECB8C381 /* [CP] Check Pods Manifest.lock */,
 				08FB98F9241530AF001282B0 /* Sources */,
 				08FB98FA241530AF001282B0 /* Frameworks */,
 				08FB98FB241530AF001282B0 /* Resources */,
@@ -424,6 +469,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6467C7260442A8801F68C22F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jobSearchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE599CA2B892C75FECB8C381 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jobSearchUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD4C5E308E9D564472D08754 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jobSearch/Pods-jobSearch-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jobSearch/Pods-jobSearch-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jobSearch/Pods-jobSearch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E24E496CA57DC4F1D63556ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jobSearch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08FB98D8241530AF001282B0 /* Sources */ = {
@@ -624,6 +755,7 @@
 		};
 		08FB9907241530AF001282B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04746F3A1B2352CEAB179387 /* Pods-jobSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -643,6 +775,7 @@
 		};
 		08FB9908241530AF001282B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37FF1A830703D21A5C81883B /* Pods-jobSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -662,6 +795,7 @@
 		};
 		08FB990A241530AF001282B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63F7A6EAB63A2D642D10832D /* Pods-jobSearchTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -684,6 +818,7 @@
 		};
 		08FB990B241530AF001282B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A3315D07A3AF8BDD3782175 /* Pods-jobSearchTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -706,6 +841,7 @@
 		};
 		08FB990D241530AF001282B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 073B8C9993C8ED4717F98C7B /* Pods-jobSearchUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -726,6 +862,7 @@
 		};
 		08FB990E241530AF001282B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28FD8777551BC8038C5C02FD /* Pods-jobSearchUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -16,5 +16,9 @@ struct NetworkConstants {
     static var ApiKey: String {
         return "mthpyw9ea7zyswfuj3zur6bt55fce7qf"
     }
+    
+    static var GoogleApiKey: String {
+        return "AIzaSyDgffGme_DB2T7hhmmcXizGa4goVukMMg0"
+    }
 
 }
