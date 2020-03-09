@@ -41,6 +41,7 @@
 		08FB995D24156039001282B0 /* JobSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB995C24156039001282B0 /* JobSearchViewModel.swift */; };
 		08FB996024156378001282B0 /* BaseTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB995E24156378001282B0 /* BaseTableVIewCell.swift */; };
 		08FB996124156378001282B0 /* JobDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB995F24156378001282B0 /* JobDetailTVCell.swift */; };
+		08FB996324164B5E001282B0 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB996224164B5E001282B0 /* WebViewVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		08FB995C24156039001282B0 /* JobSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchViewModel.swift; sourceTree = "<group>"; };
 		08FB995E24156378001282B0 /* BaseTableVIewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableVIewCell.swift; sourceTree = "<group>"; };
 		08FB995F24156378001282B0 /* JobDetailTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailTVCell.swift; sourceTree = "<group>"; };
+		08FB996224164B5E001282B0 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				08FB995F24156378001282B0 /* JobDetailTVCell.swift */,
 				08FB9957241542F2001282B0 /* JobSearchViewController.swift */,
 				08FB9959241543BD001282B0 /* BaseViewController.swift */,
+				08FB996224164B5E001282B0 /* WebViewVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08FB994B24153FF3001282B0 /* HTTPTask.swift in Sources */,
+				08FB996324164B5E001282B0 /* WebViewVC.swift in Sources */,
 				08FB995A241543BD001282B0 /* BaseViewController.swift in Sources */,
 				08FB993A24153FF3001282B0 /* NetworkConstants.swift in Sources */,
 				08FB98E4241530AF001282B0 /* ViewController.swift in Sources */,
@@ -626,7 +630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mithran.jobSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mithran.jobSearch.jobGet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -645,7 +649,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mithran.jobSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mithran.jobSearch.jobGet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

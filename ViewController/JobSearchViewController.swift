@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 // MARK: DataSource protocol for JobSearchVC Datasource
 public protocol JobSearchVCDataSource: class {
     var numberOfJobs: Int { get }
@@ -72,6 +73,10 @@ extension JobSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let urlString = dataSource.getJob(at: indexPath.row)?.url, let url = URL(string: urlString) else {
+          return //be safe
+        }
+        self.navigationController?.pushViewController(WebViewVC(urlRequest: URLRequest(url: url)), animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -94,7 +99,7 @@ extension JobSearchViewController: JobSearchVMDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    
-    
 }
+
+
+

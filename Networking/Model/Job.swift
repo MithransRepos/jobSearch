@@ -37,6 +37,7 @@ public struct Job: Decodable {
         location =  try container.decodeIfPresent(String.self, forKey: .location)
         snippet = try container.decodeIfPresent(String.self, forKey: .snippet)
         hiringCompany = try container.decodeIfPresent(HiringCompany.self, forKey: .hiringCompany)
+        url = try container.decodeIfPresent(String.self, forKey: .url)
         htmlSnippet = snippet?.htmlToAttributedString
     }
 }
