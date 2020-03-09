@@ -59,15 +59,17 @@ class JobDetailTVCell: BaseTableViewCell {
     
     private let locationLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
+        label.font = UIFont.italicSystemFont(ofSize: 12)
+        label.numberOfLines = 1
+        label.textColor = .black
         return label
     }()
     
     private let comapanyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.numberOfLines = 1
+        label.textColor = .black
         return label
     }()
     

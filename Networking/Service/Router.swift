@@ -19,8 +19,12 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     func fetch<T>(_ route: EndPoint, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) where T: Decodable {
         do {
             let request = try buildRequest(from: route)
+            
+            #if DEBUG
             requestTimeHash[request.hashValue] = Date()
             NetworkLogger.log(request: request)
+            #endif
+            
             task = decodingTask(with: request, decodingType: T.self) { json, error in
 
                 // MARK: change to main queue
@@ -53,10 +57,12 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 return
             }
 
+            #if DEBUG
             // Logging
             let requestTime = self.requestTimeHash[request.hashValue]
             self.requestTimeHash.removeValue(forKey: request.hashValue)
             NetworkLogger.log(response: httpResponse, requestedTime: requestTime, withData: data)
+            #endif
 
             switch httpResponse.statusCode {
             case 200 ... 399:

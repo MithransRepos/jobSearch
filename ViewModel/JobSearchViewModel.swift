@@ -27,15 +27,7 @@ class JobSearchVM: NSObject {
     init(delegate: JobSearchVMDelegate) {
         self.delegate = delegate
         super.init()
-        setupParams()
-        searchJob()
     }
-    
-    private func setupParams() {
-        params.searchText = "iOS developer"
-        params.location = "Los vegas"
-    }
-    
     
     // Search job using API
     private func searchJob() {
@@ -66,8 +58,28 @@ class JobSearchVM: NSObject {
     }
 }
 
-extension JobSearchVM: JobSearchVCDataSource {
+extension JobSearchVM: JobSearchResultVCDataSource {
+    var jobResultsTitle: String? {
+        if totalJobs == 0 { return "Job Search" }
+        return "\(totalJobs) matching jobs found"
+    }
     
+    func performSearch(with location: String?, text: String?) {
+        params.location = location
+        params.searchText = text
+        params.currentPage = 1
+        searchJob()
+    }
+    
+    
+    var searchText: String? {
+        return params.searchText
+    }
+    
+    var locationText: String? {
+        return params.location
+    }
+
     func loadMoreIfNeeded(index: Int) {
         if totalJobs == numberOfJobs { return }
         if index < numberOfJobs - 2 { return }

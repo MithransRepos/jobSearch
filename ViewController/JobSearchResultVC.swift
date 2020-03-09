@@ -1,5 +1,5 @@
 //
-//  JobSearchViewController.swift
+//  JobSearchResultVC.swift
 //  jobSearch
 //
 //  Created by MithranN on 08/03/20.
@@ -10,19 +10,26 @@ import UIKit
 
 
 // MARK: DataSource protocol for JobSearchVC Datasource
-public protocol JobSearchVCDataSource: class {
+public protocol JobSearchResultVCDataSource: class {
     var numberOfJobs: Int { get }
     func getJob(at index: Int) -> Job?
     func loadMoreIfNeeded(index: Int)
+    var searchText: String? { get }
+    var locationText: String? { get }
+    var jobResultsTitle: String? { get }
+    func performSearch(with location: String?, text: String?)
 }
 
-class JobSearchViewController: BaseViewController {
+class JobSearchResultVC: BaseViewController {
     
-     private var dataSource: JobSearchVCDataSource!
+    private var dataSource: JobSearchResultVCDataSource!
+    
+    private let jobSearchVC = JobSearchVC()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         dataSource = JobSearchVM(delegate: self)
+        jobSearchVC.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -32,7 +39,11 @@ class JobSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Job Search"
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        openJobSearchVC()
     }
       
     override func addViews() {
@@ -52,10 +63,20 @@ class JobSearchViewController: BaseViewController {
           tableView.register(JobDetailTVCell.self, forCellReuseIdentifier: JobDetailTVCell.reuseIdentifier)
           tableView.tableFooterView = UIView()
       }
+    
+    private func openJobSearchVC() {
+        jobSearchVC.locationText = dataSource.locationText
+        jobSearchVC.searchText = dataSource.searchText
+        self.present(jobSearchVC, animated: true, completion: nil)
+    }
+    override func apiCallCompleted() {
+        super.apiCallCompleted()
+        title = dataSource.jobResultsTitle
+    }
 }
 
 // MARK: tableview delegate & dataSource functions
-extension JobSearchViewController: UITableViewDelegate, UITableViewDataSource {
+extension JobSearchResultVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.numberOfJobs
     }
@@ -87,7 +108,7 @@ extension JobSearchViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: JobSearchVMDelegate functions
-extension JobSearchViewController: JobSearchVMDelegate {
+extension JobSearchResultVC: JobSearchVMDelegate {
     
     func didFetchJobs() {
         tableView.reloadData()
@@ -101,5 +122,9 @@ extension JobSearchViewController: JobSearchVMDelegate {
     
 }
 
-
-
+extension JobSearchResultVC: JobSearchVCDelegate {
+    func didTapSearchButton(location: String?, searchText: String?) {
+        jobSearchVC.dismiss(animated: true, completion: nil)
+        dataSource.performSearch(with: location, text: searchText)
+    }
+}
